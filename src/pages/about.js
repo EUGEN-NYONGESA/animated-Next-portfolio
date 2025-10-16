@@ -5,30 +5,32 @@ import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import profilePic from "../../public/images/profile/ProfilePic.webp";
 import { useInView, useMotionValue, useSpring } from "framer-motion";
+import Resume from "@/components/Resume";
+import Experience from "@/components/Experience";
 
-const AnimatedNumbers = ({value}) => {
-    const ref = useRef (null);
+const AnimatedNumbers = ({ value }) => {
+  const ref = useRef(null);
 
-    const motionValue = useMotionValue(0);
-    const springValue = useSpring (motionValue, {duration: 3000})
-    const isInView = useInView (ref, {once: true});
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, { duration: 3000 });
+  const isInView = useInView(ref, { once: true });
 
-    useEffect(() => {
-        if(isInView) {
-            motionValue.set(value);
-        }
-    }, [isInView, value, motionValue])
+  useEffect(() => {
+    if (isInView) {
+      motionValue.set(value);
+    }
+  }, [isInView, value, motionValue]);
 
-    useEffect (() => {
-        springValue.on("change", (latest) => {
-            if(ref.current && latest.toFixed(0) <= value){
-                ref.current.textContent = latest.toFixed(0)
-            }
-        })
-    }, [springValue, value])
+  useEffect(() => {
+    springValue.on("change", (latest) => {
+      if (ref.current && latest.toFixed(0) <= value) {
+        ref.current.textContent = latest.toFixed(0);
+      }
+    });
+  }, [springValue, value]);
 
-    return <span ref={ref}></span>
-}
+  return <span ref={ref}></span>;
+};
 
 function About() {
   return (
@@ -49,7 +51,7 @@ function About() {
           <div className="w-full flex flex-col lg:flex-row items-stretch justify-between gap-12">
             {/* Biography Section (Left-Aligned) */}
             <div className="w-full lg:w-2/5 flex flex-col items-start justify-start text-left">
-              <h2 className="mb-4 text-lg font-bold uppercase text-dark/75">
+              <h2 className="mb-4 text-lg font-bold uppercase text-primary">
                 Biography
               </h2>
 
@@ -97,7 +99,7 @@ function About() {
             <div className="col-span-2 flex flex-col items-end justify-between">
               <div className="flex flex-col items-end justify-center">
                 <span className="inline-block text-7xl font-bold">
-                    <AnimatedNumbers value={30} />+
+                  <AnimatedNumbers value={30} />+
                 </span>
                 <h2 className="text-xl font-medium capitalize text-dark/75 whitespace-nowrap">
                   Satisfied clients
@@ -106,7 +108,7 @@ function About() {
 
               <div className="flex flex-col items-end justify-center">
                 <span className="inline-block text-7xl font-bold">
-                    <AnimatedNumbers value={25} />+
+                  <AnimatedNumbers value={25} />+
                 </span>
                 <h2 className="text-lg font-medium capitalize text-dark/75 whitespace-nowrap">
                   Projects completed
@@ -115,7 +117,7 @@ function About() {
 
               <div className="flex flex-col items-end justify-center">
                 <span className="inline-block text-7xl font-bold">
-                    <AnimatedNumbers value={2} />+
+                  <AnimatedNumbers value={2} />+
                 </span>
                 <h2 className="text-lg font-medium capitalize text-dark/75 whitespace-nowrap">
                   Years of experience
@@ -123,6 +125,21 @@ function About() {
               </div>
             </div>
           </div>
+
+          <section className="mt-20">
+            <h2 className="mb-12 text-6xl font-bold text-center text-dark dark:text-light">
+              Work Experience
+            </h2>
+            <Experience />
+          </section>
+
+          {/* Resume Section with Title */}
+          <section className="mt-20">
+            <h2 className="mb-12 text-6xl font-bold text-center text-dark dark:text-light">
+              More Info
+            </h2>
+            <Resume />
+          </section>
         </Layout>
       </main>
     </>
