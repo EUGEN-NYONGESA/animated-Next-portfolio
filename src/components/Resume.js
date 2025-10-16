@@ -32,7 +32,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion, AnimatePresence } from "framer-motion";
 
 const about = {
-  title: "About me",
+  title: "More Information",
   description:
     "Full Stack Developer and Data Analyst with 2+ years experience building digital solutions. I combine technical skills with creative problem-solving to deliver applications that meet both user needs and business objectives.",
   info: [
@@ -301,7 +301,7 @@ function Resume() {
         className="w-full flex flex-col lg:flex-row gap-8 lg:gap-12"
       >
         <TabsList className="flex flex-row lg:flex-col w-full lg:w-64 gap-4 p-0">
-          {["education", "skills", "about"].map((tab) => (
+          {["education", "skills", "more"].map((tab) => (
             <motion.div
               key={tab}
               variants={tabButtonVariants}
@@ -469,9 +469,9 @@ function Resume() {
             </TabsContent>
 
             {/* About Tab */}
-            <TabsContent value="about" className="w-full mt-0">
+            <TabsContent value="more" className="w-full mt-0">
               <motion.div
-                key="about"
+                key="more"
                 variants={tabContentVariants}
                 initial="hidden"
                 animate="visible"
