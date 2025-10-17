@@ -112,7 +112,7 @@ function NavBar() {
           className="ml-3 flex items-center justify-center rounded-full p-1"
         >
           {mode === "dark" ? (
-            <div className="text-gray-400">
+            <div className="text-gray-300">
               <SunIcon />
             </div>
           ) : (

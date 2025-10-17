@@ -9,13 +9,14 @@ function HireMe() {
       {/* Outer Container */}
       <div className="relative flex items-center justify-center w-[150px] h-[150px] rounded-full">
         {/* Outer Border (close to image) */}
-        <div className="absolute inset-0 flex items-center justify-center dark:bg-gray-700 rounded-full border-[3px] border-dark dark:border-light">
+        <div className="absolute inset-0 flex items-center justify-center rounded-full border-[3px] border-dark dark:border-light">
           {/* Rotating Image */}
           <Image
             src={spinImage}
             width={185}
             height={185}
-            className="animate-slow-spin rounded-full object-cover"
+            className="animate-slow-spin rounded-full object-cover 
+                       dark:invert dark:brightness-150 transition duration-500 ease-in-out"
             alt="Spinning decorative element"
           />
         </div>

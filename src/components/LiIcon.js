@@ -15,11 +15,11 @@ function LiIcon({reference}) {
           r="20"
           className="stroke-primary stroke-1 fill-none"
         />
-        <motion.circle cx="75" cy="50" r="20" className="stroke-[5px] fill-light"
+        <motion.circle cx="75" cy="50" r="20" className="stroke-[5px] fill-light dark:fill-dark"
         style={{
             pathLength : scrollYProgress
         }} />
-        <circle cx="75" cy="50" r="10" className="animate-pulse stroke-1 fill-primary" />
+        <circle cx="75" cy="50" r="10" className="animate-pulse stroke-1 fill-light" />
       </svg>
     </figure>
   );
