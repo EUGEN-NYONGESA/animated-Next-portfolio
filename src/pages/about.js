@@ -98,28 +98,28 @@ function About() {
 
             <div className="col-span-2 flex flex-col items-end justify-between">
               <div className="flex flex-col items-end justify-center">
-                <span className="inline-block text-7xl font-bold">
+                <span className="inline-block text-7xl font-bold dark:text-primary">
                   <AnimatedNumbers value={30} />+
                 </span>
-                <h2 className="text-xl font-medium capitalize text-dark/75 whitespace-nowrap">
+                <h2 className="text-xl font-medium capitalize text-dark/75 dark:text-light whitespace-nowrap">
                   Satisfied clients
                 </h2>
               </div>
 
-              <div className="flex flex-col items-end justify-center">
+              <div className="flex flex-col items-end justify-center dark:text-primary">
                 <span className="inline-block text-7xl font-bold">
                   <AnimatedNumbers value={25} />+
                 </span>
-                <h2 className="text-lg font-medium capitalize text-dark/75 whitespace-nowrap">
+                <h2 className="text-lg font-medium capitalize text-dark/75 dark:text-light whitespace-nowrap">
                   Projects completed
                 </h2>
               </div>
 
-              <div className="flex flex-col items-end justify-center">
+              <div className="flex flex-col items-end justify-center dark:text-primary">
                 <span className="inline-block text-7xl font-bold">
                   <AnimatedNumbers value={2} />+
                 </span>
-                <h2 className="text-lg font-medium capitalize text-dark/75 whitespace-nowrap">
+                <h2 className="text-lg font-medium capitalize text-dark/75 dark:text-light whitespace-nowrap">
                   Years of experience
                 </h2>
               </div>

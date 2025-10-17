@@ -19,7 +19,7 @@ export default function Home() {
         />
       </Head>
 
-      <main className="flex flex-col justify-between items-center text-dark w-full h-screen relative overflow-hidden bg-light dark:bg-dark">
+      <main className="flex flex-col justify-between items-center text-dark dark:text-light w-full h-screen relative overflow-hidden bg-light dark:bg-dark">
         {/* Top Section */}
         <Layout className="pt-3 w-full flex-1 flex items-center justify-between">
           <div className="flex flex-col lg:flex-row items-center justify-between w-full relative">
@@ -32,15 +32,15 @@ export default function Home() {
                 className="w-full h-auto object-cover"
               />
 
-              {/* Gradient overlay */}
-              <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-light to-transparent dark:from-dark/90 pointer-events-none z-10"></div>
+              {/* Fixed Gradient overlay */}
+              <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-light via-light/80 to-transparent dark:from-dark dark:via-dark/80 dark:to-transparent pointer-events-none z-10"></div>
             </div>
 
             {/* TEXT SECTION */}
             <div className="w-full lg:w-1/2 flex flex-col items-start justify-center text-center lg:text-left px-6 relative z-20">
               <AnimateText
                 text="Building the future, one line of Code at a Time."
-                className="!text-4xl !text-left sm:!text-5xl lg:!text-6xl font-bold leading-tight"
+                className="!text-4xl !text-left sm:!text-5xl lg:!text-6xl font-bold leading-tight text-dark dark:text-light"
               />
 
               <p className="my-4 text-base font-medium text-gray-700 dark:text-gray-300">
@@ -57,10 +57,10 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="relative flex items-center justify-center 
-                  bg-dark text-light p-2.5 px-6 rounded-lg
-                  text-lg font-semibold border-2 border-solid border-dark
-                  transition-all duration-500 ease-in-out hover:bg-gray-300 
-                  hover:text-dark hover:shadow-xl hover:scale-105 active:scale-95
+                  bg-dark dark:bg-light text-light dark:text-dark p-2.5 px-6 rounded-lg
+                  text-lg font-semibold border-2 border-solid border-dark dark:border-light
+                  transition-all duration-500 ease-in-out hover:bg-primary dark:hover:bg-primary
+                  hover:text-dark dark:hover:text-light hover:shadow-xl hover:scale-105 active:scale-95
                   z-30"
                   download
                 >
@@ -70,10 +70,10 @@ export default function Home() {
                 <Link
                   href="mailto:digitalblacksmith@gmail.com"
                   className="relative flex items-center justify-center 
-                  bg-dark text-light p-2.5 px-6 rounded-lg
-                  text-lg font-semibold border-2 border-solid border-dark
-                  transition-all duration-500 ease-in-out hover:bg-gray-300
-                  hover:text-dark hover:shadow-xl hover:scale-105 active:scale-95
+                  bg-dark dark:bg-light text-light dark:text-dark p-2.5 px-6 rounded-lg
+                  text-lg font-semibold border-2 border-solid border-dark dark:border-light
+                  transition-all duration-500 ease-in-out hover:bg-primary dark:hover:bg-primary
+                  hover:text-dark dark:hover:text-light hover:shadow-xl hover:scale-105 active:scale-95
                   z-30"
                 >
                   Contact
@@ -84,7 +84,11 @@ export default function Home() {
         </Layout>
         <HireMe />
         <div className="absolute right-8 bottom-12 inline-block w-24 mb-14">
-          <Image src={lightBulb} className="w-full h-auto" alt="" />
+          <Image 
+            src={lightBulb} 
+            className="w-full h-auto filter dark:invert dark:brightness-200" 
+            alt="Light bulb icon" 
+          />
         </div>
       </main>
     </>

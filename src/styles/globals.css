@@ -116,6 +116,12 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
+  /* Custom colors */
+  --color-dark: #1b1b1b;
+  --color-light: #f5f5f5;
+  --color-primary: #B63E96;
+  --color-primary-dark: #58E6D9;
+
   /* Font families */
   --font-google-sans-code: "Google Sans Code", monospace;
   --font-montserrat: "Montserrat", sans-serif;
@@ -152,6 +158,9 @@
 
 .bg-circular-dark-sm {
   background-image: var(--bg-circular-dark-sm);
+}
+.dark .social-icon {
+  filter: invert(1) brightness(2);
 }
 
 /* Custom shadow */
@@ -229,6 +238,12 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  /* Custom colors */
+  --color-dark: #f5f5f5;  /* Light becomes dark in dark mode */
+  --color-light: #1b1b1b; /* Dark becomes light in dark mode */
+  --color-primary: #58E6D9; /* Swap primary colors */
+  --color-primary-dark: #B63E96;
 }
 
 @layer base {

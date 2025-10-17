@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 function Footer() {
   return (
-    <footer className='w-full border-t-2 border-solid border-dark font-medium text-lg'>
+    <footer className='w-full border-t-2 border-solid border-dark font-medium text-lg bg-light dark:bg-dark'>
         <Layout className="py-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                 <span> &copy; {new Date().getFullYear()} Rights Reserved</span>

@@ -24,7 +24,7 @@ const FeaturedArticle = ({ img, title, time, summary, link }) => (
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, ease: "easeInOut" }}
     viewport={{ once: true }}
-    className="col-span-12 w-full p-6 bg-light border-2 border-solid border-dark rounded-2xl shadow-xl transition-all duration-300"
+    className="col-span-12 w-full p-6 bg-light dark:bg-gray-900 border-2 border-solid border-dark dark:border-gray-700 rounded-2xl shadow-xl transition-all duration-300"
     whileHover={{ 
       scale: 1.02,
       y: -5,
@@ -37,7 +37,7 @@ const FeaturedArticle = ({ img, title, time, summary, link }) => (
         <Link
           href={link}
           target="_blank"
-          className="w-full cursor-pointer overflow-hidden rounded-lg border border-solid border-dark/20 block"
+          className="w-full cursor-pointer overflow-hidden rounded-lg border border-solid border-dark/20 dark:border-gray-600 block"
         >
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -55,7 +55,7 @@ const FeaturedArticle = ({ img, title, time, summary, link }) => (
 
       {/* Text */}
       <div className="w-full lg:w-3/5 flex flex-col items-start justify-between gap-3">
-        <div className="flex items-center gap-4 text-primary font-medium text-base">
+        <div className="flex items-center gap-4 text-primary dark:text-primary font-medium text-base">
           <span>Featured Article</span>
           <span className="flex items-center gap-1">
             <FaClock className="text-sm" />
@@ -68,22 +68,27 @@ const FeaturedArticle = ({ img, title, time, summary, link }) => (
           target="_blank"
           className="hover:underline underline-offset-4 w-full"
         >
-          <h2 className="w-full text-left text-2xl font-bold text-dark hover:text-primary transition-colors duration-300">
+          <h2 className="w-full text-left text-2xl font-bold text-dark dark:text-light hover:text-primary dark:hover:text-primary transition-colors duration-300">
             {title}
           </h2>
         </Link>
 
-        <p className="font-medium text-dark/75 leading-relaxed border-t border-dark/10 pt-3 w-full text-base">
+        <p className="font-medium text-dark/75 dark:text-light/75 leading-relaxed border-t border-dark/10 dark:border-light/10 pt-3 w-full text-base">
           {summary}
         </p>
 
-        <Link
-          href={link}
-          target="_blank"
-          className="mt-3 flex items-center gap-2 text-base font-semibold text-primary hover:gap-4 transition-all duration-300"
+        <motion.div
+          whileHover={{ x: 5 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          Read More <FaArrowRight />
-        </Link>
+          <Link
+            href={link}
+            target="_blank"
+            className="mt-3 flex items-center gap-2 text-base font-semibold text-primary dark:text-primary hover:text-primary dark:hover:text-primary transition-all duration-300"
+          >
+            Read More <FaArrowRight />
+          </Link>
+        </motion.div>
       </div>
     </div>
   </motion.li>
@@ -98,7 +103,7 @@ const Article = ({ img, title, time, summary, link }) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
       viewport={{ once: true }}
-      className="w-full flex flex-col items-center justify-center rounded-xl border border-solid border-dark bg-light p-4 shadow-lg transition-all duration-300 cursor-pointer"
+      className="w-full flex flex-col items-center justify-center rounded-xl border border-solid border-dark dark:border-gray-700 bg-light dark:bg-gray-900 p-4 shadow-lg transition-all duration-300 cursor-pointer"
       whileHover={{ 
         scale: 1.05,
         y: -8,
@@ -107,7 +112,7 @@ const Article = ({ img, title, time, summary, link }) => {
       onClick={() => setIsExpanded(!isExpanded)}
     >
       <motion.div
-        className="w-full cursor-pointer overflow-hidden rounded-lg border border-solid border-dark/20 mb-3"
+        className="w-full cursor-pointer overflow-hidden rounded-lg border border-solid border-dark/20 dark:border-gray-600 mb-3"
         whileHover={{ scale: 1.08 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
       >
@@ -121,19 +126,19 @@ const Article = ({ img, title, time, summary, link }) => {
 
       <div className="w-full flex flex-col items-start justify-between gap-2">
         <div className="flex items-center justify-between w-full">
-          <span className="text-primary font-medium text-xs border-b border-dark/20 pb-1">
+          <span className="text-primary dark:text-primary font-medium text-xs border-b border-dark/20 dark:border-light/20 pb-1">
             {time}
           </span>
           <motion.span
             animate={{ rotate: isExpanded ? 180 : 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="text-dark/60 text-sm"
+            className="text-dark/60 dark:text-light/60 text-sm"
           >
             ▼
           </motion.span>
         </div>
 
-        <h2 className="w-full text-left text-lg font-bold text-dark hover:text-primary transition-colors duration-300">
+        <h2 className="w-full text-left text-lg font-bold text-dark dark:text-light hover:text-primary dark:hover:text-primary transition-colors duration-300">
           {title}
         </h2>
 
@@ -146,17 +151,22 @@ const Article = ({ img, title, time, summary, link }) => {
               transition={{ duration: 0.5, ease: "easeInOut" }}
               className="overflow-hidden"
             >
-              <p className="text-dark/75 text-sm leading-relaxed border-t border-dark/10 pt-2">
+              <p className="text-dark/75 dark:text-light/75 text-sm leading-relaxed border-t border-dark/10 dark:border-light/10 pt-2">
                 {summary}
               </p>
-              <Link
-                href={link}
-                target="_blank"
-                className="mt-2 inline-flex items-center gap-1 text-primary font-medium text-sm hover:gap-2 transition-all duration-300"
-                onClick={(e) => e.stopPropagation()}
+              <motion.div
+                whileHover={{ x: 3 }}
+                transition={{ duration: 0.2, ease: "easeInOut" }}
               >
-                Read Full Article <FaArrowRight className="text-xs" />
-              </Link>
+                <Link
+                  href={link}
+                  target="_blank"
+                  className="mt-2 inline-flex items-center gap-1 text-primary dark:text-primary font-medium text-sm hover:text-primary dark:hover:text-primary transition-all duration-300"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  Read Full Article <FaArrowRight className="text-xs" />
+                </Link>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -243,15 +253,18 @@ function Articles() {
         />
       </Head>
 
-      <main className="w-full mb-16 flex flex-col items-center justify-center overflow-hidden">
+      <main className="w-full mb-16 flex flex-col items-center justify-center overflow-hidden dark:bg-dark">
         <Layout className="pt-16">
-          <AnimateText text="Sharing insights, sparking ideas." className="mb-4" />
+          <AnimateText 
+            text="Sharing insights, sparking ideas." 
+            className="mb-4 dark:text-light"
+          />
 
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="inline-block w-full text-dark font-semibold text-center capitalize mb-16 text-3xl"
+            className="inline-block w-full text-dark dark:text-light font-semibold text-center capitalize mb-16 text-3xl"
           >
             – where code meets clarity and complexity finds simplicity
           </motion.h2>
@@ -274,7 +287,7 @@ function Articles() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
             viewport={{ once: true }}
-            className="text-3xl font-bold text-center mb-10 text-dark"
+            className="text-3xl font-bold text-center mb-10 text-dark dark:text-light"
           >
             More Articles
           </motion.h3>

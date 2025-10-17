@@ -7,7 +7,7 @@ function LiIcon({reference}) {
     offset: ["start end", "center start"],
   });
   return (
-    <figure className="absolute left-0 stroke-dark">
+    <figure className="absolute left-0 stroke-dark dark:stroke-primary">
       <svg className="-rotate-90" cx="75" height="75" viewBox="0 0 100 100">
         <circle
           cx="75"

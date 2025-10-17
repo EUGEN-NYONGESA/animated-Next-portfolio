@@ -115,7 +115,7 @@ function Resume() {
           },
           {
             icon: (
-              <RiNextjsLine className="text-6xl text-dark dark:text-light" />
+              <RiNextjsLine className="text-6xl text-dark hover:text-light dark:text-light dark:hover:text-dark" />
             ),
             name: "Next.js",
           },
@@ -332,7 +332,7 @@ function Resume() {
                 className="flex flex-col gap-8"
               >
                 <div>
-                  <h3 className="text-3xl font-bold text-dark dark:text-light mb-4">
+                  <h3 className="text-3xl font-bold text-dark dark:text-primary mb-4">
                     {education.title}
                   </h3>
                   <p className="text-dark dark:text-light/75 max-w-2xl">
@@ -353,16 +353,16 @@ function Resume() {
                         initial="hidden"
                         animate="visible"
                         whileHover="hover"
-                        className="bg-light dark:bg-dark border border-solid border-dark dark:border-light p-6 rounded-xl flex flex-col justify-center gap-3 cursor-pointer transition-all duration-300 hover:bg-gray-700 hover:border-gray-500 group"
+                        className="bg-light dark:bg-dark border border-solid border-dark dark:border-light p-6 rounded-xl flex flex-col justify-center gap-3 cursor-pointer transition-all duration-300 hover:bg-gray-700 hover:border-gray-500 dark:hover:bg-gray-900 group"
                       >
-                        <span className="text-primary dark:text-primary-dark font-medium group-hover:text-light transition-colors duration-300">
+                        <span className="text-primary dark:text-primary font-medium group-hover:text-light transition-colors duration-300">
                           {item.duration}
                         </span>
                         <h3 className="text-xl font-semibold text-dark dark:text-light min-h-[60px] group-hover:text-light transition-colors duration-300">
                           {item.degree}
                         </h3>
                         <div className="flex items-center gap-3">
-                          <span className="w-2 h-2 rounded-full bg-primary dark:bg-primary-dark group-hover:bg-light transition-colors duration-300"></span>
+                          <span className="w-2 h-2 rounded-full bg-primary dark:bg-primary group-hover:bg-light transition-colors duration-300"></span>
                           <p className="text-dark/75 dark:text-light/75 group-hover:text-light/90 transition-colors duration-300">
                             {item.institution}
                           </p>
@@ -385,7 +385,7 @@ function Resume() {
                 className="flex flex-col gap-8"
               >
                 <div>
-                  <h3 className="text-3xl font-bold text-dark dark:text-light mb-4">
+                  <h3 className="text-3xl font-bold text-dark dark:text-primary mb-4">
                     {skillsData.title}
                   </h3>
                   <p className="text-dark dark:text-light/75 max-w-2xl mb-6">
@@ -479,7 +479,7 @@ function Resume() {
                 className="flex flex-col gap-8"
               >
                 <div>
-                  <h3 className="text-3xl font-bold text-dark dark:text-light mb-4">
+                  <h3 className="text-3xl font-bold text-dark dark:text-primary mb-4">
                     {about.title}
                   </h3>
                   <p className="text-dark dark:text-light/75 text-lg leading-relaxed max-w-3xl mb-8">
@@ -507,7 +507,7 @@ function Resume() {
                         <span className="text-dark/75 dark:text-light/75 font-medium group-hover:text-dark dark:group-hover:text-light transition-colors duration-300">
                           {item.fieldName}:
                         </span>
-                        <span className="text-dark dark:text-light font-semibold group-hover:text-primary dark:group-hover:text-primary-dark transition-colors duration-300">
+                        <span className="text-dark dark:text-light font-semibold group-hover:text-primary dark:group-hover:text-primary transition-colors duration-300">
                           {item.fieldValue}
                         </span>
                       </div>
