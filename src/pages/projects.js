@@ -19,7 +19,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2
+      staggerChildren: 0.15
     }
   }
 };
@@ -27,7 +27,7 @@ const containerVariants = {
 const itemVariants = {
   hidden: { 
     opacity: 0, 
-    y: 60,
+    y: 40,
     scale: 0.95
   },
   visible: {
@@ -35,7 +35,7 @@ const itemVariants = {
     y: 0,
     scale: 1,
     transition: {
-      duration: 0.7,
+      duration: 0.6,
       ease: [0.25, 0.46, 0.45, 0.94]
     }
   }
@@ -44,7 +44,7 @@ const itemVariants = {
 const featuredVariants = {
   hidden: { 
     opacity: 0, 
-    y: 80,
+    y: 60,
     scale: 0.9
   },
   visible: {
@@ -52,7 +52,7 @@ const featuredVariants = {
     y: 0,
     scale: 1,
     transition: {
-      duration: 0.9,
+      duration: 0.8,
       ease: "easeOut"
     }
   }
@@ -61,9 +61,9 @@ const featuredVariants = {
 const imageHoverVariants = {
   initial: { scale: 1 },
   hover: { 
-    scale: 1.05,
+    scale: 1.03,
     transition: { 
-      duration: 0.4,
+      duration: 0.3,
       ease: "easeOut"
     }
   }
@@ -72,13 +72,13 @@ const imageHoverVariants = {
 const cardHoverVariants = {
   initial: { 
     y: 0,
-    boxShadow: "0 10px 30px rgba(0,0,0,0.1)"
+    boxShadow: "0 4px 12px rgba(0,0,0,0.08)"
   },
   hover: { 
-    y: -8,
-    boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+    y: -6,
+    boxShadow: "0 12px 28px rgba(0,0,0,0.12)",
     transition: {
-      duration: 0.3,
+      duration: 0.25,
       ease: "easeOut"
     }
   }
@@ -90,10 +90,10 @@ const backgroundFloatVariants = {
     y: 0 
   },
   hover: { 
-    x: 4,
-    y: 4,
+    x: 3,
+    y: 3,
     transition: {
-      duration: 0.3,
+      duration: 0.25,
       ease: "easeOut"
     }
   }
@@ -105,20 +105,20 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
       variants={featuredVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.2 }}
       whileHover="hover"
-      className="w-full flex items-center justify-between rounded-3xl border-2 
-  border-solid border-dark dark:border-gray-700 bg-light dark:bg-gray-900 shadow-2xl p-8 gap-8 relative"
+      className="w-full flex flex-col lg:flex-row items-center justify-between rounded-2xl lg:rounded-3xl border-2 
+  border-solid border-dark dark:border-gray-700 bg-light dark:bg-gray-900 shadow-lg lg:shadow-2xl p-4 sm:p-6 lg:p-8 gap-6 lg:gap-8 relative"
     >
       <motion.div 
-        className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark dark:bg-gray-400 rounded-br-3xl"
+        className="absolute top-0 -right-2 lg:-right-3 -z-10 w-[101%] h-[102%] rounded-2xl lg:rounded-[2rem] bg-dark dark:bg-gray-400 rounded-br-2xl lg:rounded-br-3xl"
         variants={backgroundFloatVariants}
       />
       
       <Link
         href={link}
         target="_blank"
-        className="w-1/2 cursor-pointer overflow-hidden rounded-xl border border-solid border-dark/20 dark:border-gray-600"
+        className="w-full lg:w-1/2 cursor-pointer overflow-hidden rounded-lg lg:rounded-xl border border-solid border-dark/20 dark:border-gray-600"
       >
         <motion.div
           variants={imageHoverVariants}
@@ -129,14 +129,14 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
             alt={title}
             className="w-full h-auto"
             priority
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 45vw, 40vw"
           />
         </motion.div>
       </Link>
 
-      <div className="w-1/2 flex flex-col items-start justify-between gap-4">
+      <div className="w-full lg:w-1/2 flex flex-col items-start justify-between gap-3 sm:gap-4">
         <motion.span 
-          className="text-primary dark:text-primary font-medium text-xl border-b-2 border-dark/20 dark:border-light/20 pb-2 w-full"
+          className="text-primary dark:text-primary font-medium text-base sm:text-lg lg:text-xl border-b-2 border-dark/20 dark:border-light/20 pb-1 sm:pb-2 w-full"
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2 }}
@@ -151,19 +151,19 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
           className="hover:underline underline-offset-4 w-full"
         >
           <motion.h2 
-            className="w-full text-left text-4xl font-bold text-dark dark:text-light hover:text-primary dark:hover:text-primary transition-colors duration-300"
-            initial={{ opacity: 0, y: 20 }}
+            className="w-full text-left text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-dark dark:text-light hover:text-primary dark:hover:text-primary transition-colors duration-300"
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
             viewport={{ once: true }}
-            whileHover={{ x: 5 }}
+            whileHover={{ x: 3 }}
           >
             {title}
           </motion.h2>
         </Link>
 
         <motion.p 
-          className="font-medium text-dark/75 dark:text-light/75 leading-relaxed border-t border-dark/10 dark:border-light/10 pt-4 w-full"
+          className="font-medium text-dark/75 dark:text-light/75 leading-relaxed text-sm sm:text-base border-t border-dark/10 dark:border-light/10 pt-3 sm:pt-4 w-full"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
@@ -173,8 +173,8 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
         </motion.p>
 
         <motion.div 
-          className="mt-4 flex items-center gap-6 border-t border-dark/10 dark:border-light/10 pt-4 w-full"
-          initial={{ opacity: 0, y: 20 }}
+          className="mt-3 sm:mt-4 flex items-center gap-4 sm:gap-6 border-t border-dark/10 dark:border-light/10 pt-3 sm:pt-4 w-full"
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
           viewport={{ once: true }}
@@ -183,9 +183,9 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
             <Link
               href={github}
               target="_blank"
-              className="w-12 h-12 flex items-center justify-center rounded-full bg-dark dark:bg-light text-light dark:text-dark hover:bg-primary dark:hover:bg-primary transition-all duration-300"
+              className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-dark dark:bg-light text-light dark:text-dark hover:bg-primary dark:hover:bg-primary transition-all duration-300"
             >
-              <FaGithub className="text-2xl" />
+              <FaGithub className="text-lg sm:text-xl" />
             </Link>
           </motion.div>
           
@@ -193,7 +193,7 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
             <Link
               href={link}
               target="_blank"
-              className="rounded-lg bg-dark dark:bg-light text-light dark:text-dark p-3 px-8 text-lg font-semibold hover:bg-primary dark:hover:bg-primary transition-all duration-300"
+              className="rounded-lg bg-dark dark:bg-light text-light dark:text-dark py-2 px-4 sm:py-3 sm:px-6 text-sm sm:text-base font-semibold hover:bg-primary dark:hover:bg-primary transition-all duration-300"
             >
               Visit Project
             </Link>
@@ -210,19 +210,19 @@ const Project = ({ title, type, img, link, github }) => {
       variants={itemVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.1 }}
       whileHover="hover"
-      className="w-full flex flex-col items-center justify-center rounded-2xl border border-solid border-dark dark:border-gray-700 bg-light dark:bg-gray-900 p-6 relative shadow-lg"
+      className="w-full flex flex-col items-center justify-center rounded-xl sm:rounded-2xl border border-solid border-dark dark:border-gray-700 bg-light dark:bg-gray-900 p-4 sm:p-6 relative shadow-md sm:shadow-lg"
     >
       <motion.div 
-        className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark dark:bg-gray-400 rounded-br-3xl"
+        className="absolute top-0 -right-2 sm:-right-3 -z-10 w-[101%] h-[102%] rounded-xl sm:rounded-[2rem] bg-dark dark:bg-gray-400 rounded-br-xl sm:rounded-br-3xl"
         variants={backgroundFloatVariants}
       />
       
       <Link
         href={link}
         target="_blank"
-        className="w-full cursor-pointer overflow-hidden rounded-lg border border-solid border-dark/20 dark:border-gray-600 mb-4"
+        className="w-full cursor-pointer overflow-hidden rounded-lg border border-solid border-dark/20 dark:border-gray-600 mb-3 sm:mb-4"
       >
         <motion.div
           variants={imageHoverVariants}
@@ -233,14 +233,14 @@ const Project = ({ title, type, img, link, github }) => {
             alt={title}
             className="w-full h-auto"
             priority
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 45vw, (max-width: 1024px) 30vw, 25vw"
           />
         </motion.div>
       </Link>
 
-      <div className="w-full flex flex-col items-start justify-between gap-3">
+      <div className="w-full flex flex-col items-start justify-between gap-2 sm:gap-3">
         <motion.span 
-          className="text-primary dark:text-primary font-medium text-lg border-b border-dark/20 dark:border-light/20 pb-1 w-full"
+          className="text-primary dark:text-primary font-medium text-sm sm:text-base lg:text-lg border-b border-dark/20 dark:border-light/20 pb-1 w-full"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.1 }}
@@ -255,19 +255,19 @@ const Project = ({ title, type, img, link, github }) => {
           className="hover:underline underline-offset-2 w-full"
         >
           <motion.h2 
-            className="w-full text-left text-2xl font-bold text-dark dark:text-light hover:text-primary dark:hover:text-primary transition-colors duration-300"
-            initial={{ opacity: 0, y: 10 }}
+            className="w-full text-left text-lg sm:text-xl lg:text-2xl font-bold text-dark dark:text-light hover:text-primary dark:hover:text-primary transition-colors duration-300"
+            initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             viewport={{ once: true }}
-            whileHover={{ x: 3 }}
+            whileHover={{ x: 2 }}
           >
             {title}
           </motion.h2>
         </Link>
 
         <motion.div 
-          className="mt-2 flex items-center gap-4 border-t border-dark/10 dark:border-light/10 pt-3 w-full"
+          className="mt-2 sm:mt-3 flex items-center gap-3 sm:gap-4 border-t border-dark/10 dark:border-light/10 pt-2 sm:pt-3 w-full"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
@@ -277,9 +277,9 @@ const Project = ({ title, type, img, link, github }) => {
             <Link
               href={github}
               target="_blank"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-dark dark:bg-light text-light dark:text-dark hover:bg-primary dark:hover:bg-primary transition-all duration-300"
+              className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-dark dark:bg-light text-light dark:text-dark hover:bg-primary dark:hover:bg-primary transition-all duration-300"
             >
-              <FaGithub className="text-xl" />
+              <FaGithub className="text-base sm:text-lg" />
             </Link>
           </motion.div>
           
@@ -287,7 +287,7 @@ const Project = ({ title, type, img, link, github }) => {
             <Link
               href={link}
               target="_blank"
-              className="rounded-lg bg-dark dark:bg-light text-light dark:text-dark p-2 px-6 text-base font-semibold hover:bg-primary dark:hover:bg-primary transition-all duration-300"
+              className="rounded-lg bg-dark dark:bg-light text-light dark:text-dark py-1.5 px-3 sm:py-2 sm:px-4 text-xs sm:text-sm font-semibold hover:bg-primary dark:hover:bg-primary transition-all duration-300"
             >
               Visit
             </Link>
@@ -308,40 +308,42 @@ function Projects() {
           content="Explore my portfolio of web development projects, featuring modern technologies and innovative solutions."
         />
       </Head>
-      <main className="w-full mb-16 flex flex-col items-center justify-center dark:bg-dark">
-        <Layout className="pt-16">
+
+      <main className="w-full mb-12 sm:mb-16 flex flex-col items-center justify-center dark:bg-dark">
+        <Layout className="pt-12 sm:pt-16">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
+            className="mb-12 sm:mb-16"
           >
             <AnimateText
               text="Where ideas meet execution, and vision becomes reality."
-              className="mb-16 dark:text-light"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl dark:text-light"
             />
           </motion.div>
 
           <motion.div 
-            className="grid grid-cols-12 gap-8 gap-y-16"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8 gap-y-12 sm:gap-y-16"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
+            viewport={{ once: true, amount: 0.05 }}
           >
-            <motion.div className="col-span-12" variants={featuredVariants}>
+            {/* Featured Projects - Full width on all screens */}
+            <motion.div className="col-span-1 sm:col-span-2 lg:col-span-12" variants={featuredVariants}>
               <FeaturedProject
                 title="Crypto Screener Application"
                 img={project1}
-                summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
-It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
-local currency."
+                summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your local currency."
                 link="/"
                 github="/"
                 type="Featured Project"
               />
             </motion.div>
 
-            <motion.div className="col-span-6" variants={itemVariants}>
+            {/* Regular Projects - Responsive grid */}
+            <motion.div className="col-span-1 sm:col-span-2 lg:col-span-6 xl:col-span-6" variants={itemVariants}>
               <Project
                 title="E-Commerce Platform"
                 img={project2}
@@ -351,7 +353,7 @@ local currency."
               />
             </motion.div>
 
-            <motion.div className="col-span-6" variants={itemVariants}>
+            <motion.div className="col-span-1 sm:col-span-2 lg:col-span-6 xl:col-span-6" variants={itemVariants}>
               <Project
                 title="Task Management App"
                 img={project3}
@@ -361,7 +363,8 @@ local currency."
               />
             </motion.div>
 
-            <motion.div className="col-span-12" variants={featuredVariants}>
+            {/* Second Featured Project */}
+            <motion.div className="col-span-1 sm:col-span-2 lg:col-span-12" variants={featuredVariants}>
               <FeaturedProject
                 title="AI-Powered Analytics Dashboard"
                 img={project4}
@@ -372,7 +375,8 @@ local currency."
               />
             </motion.div>
 
-            <motion.div className="col-span-6" variants={itemVariants}>
+            {/* More Regular Projects */}
+            <motion.div className="col-span-1 sm:col-span-2 lg:col-span-6 xl:col-span-6" variants={itemVariants}>
               <Project
                 title="Weather Forecast App"
                 img={project5}
@@ -382,7 +386,7 @@ local currency."
               />
             </motion.div>
 
-            <motion.div className="col-span-6" variants={itemVariants}>
+            <motion.div className="col-span-1 sm:col-span-2 lg:col-span-6 xl:col-span-6" variants={itemVariants}>
               <Project
                 title="Social Media Dashboard"
                 img={project6}

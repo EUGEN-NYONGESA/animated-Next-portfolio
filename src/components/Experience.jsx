@@ -7,15 +7,16 @@ const Details = ({ position, company, companyLink, time, address, work }) => {
   return (
     <li
       ref={ref}
-      className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-center justify-between"
+      className="my-6 sm:my-8 first:mt-0 last:mb-0 w-full sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[60%] mx-auto flex flex-col items-center justify-between"
     >
       <LiIcon reference={ref} />
       <motion.div
         initial={{ y: 50 }}
         whileInView={{ y: 0 }}
         transition={{ duration: 1, type: "spring" }}
+        className="w-full pl-8 sm:pl-12 md:pl-16"
       >
-        <h3 className="capitalize font-bold text-2xl">
+        <h3 className="capitalize font-bold text-lg sm:text-xl md:text-2xl">
           {position}&nbsp;
           <a
             href={companyLink}
@@ -25,10 +26,10 @@ const Details = ({ position, company, companyLink, time, address, work }) => {
             @{company}
           </a>
         </h3>
-        <span className="capitalize font-medium text-dark/75">
+        <span className="capitalize font-medium text-dark/75 text-sm sm:text-base">
           {time} | {address}
         </span>
-        <p className="font-medium w-full">{work}</p>
+        <p className="font-medium w-full mt-2 text-sm sm:text-base">{work}</p>
       </motion.div>
     </li>
   );
@@ -41,17 +42,17 @@ function Experience() {
     offset: ["start end", "center start"],
   });
   return (
-    <div className="my-20">
-      <h2 className="font-semibold text-2xl mb-32 w-full text-center">
+    <div className="my-12 sm:my-16 md:my-20">
+      <h2 className="font-semibold text-lg sm:text-xl md:text-2xl mb-16 sm:mb-24 md:mb-32 w-full text-center px-4">
         Diverse experience spanning web development, data analysis, and IT
         support across freelance, corporate, and government environments.
       </h2>
-      <div ref={ref} className="w-[75%] mx-auto relative">
+      <div ref={ref} className="w-full sm:w-[90%] md:w-[85%] lg:w-[80%] xl:w-[75%] mx-auto relative">
         <motion.div
           style={{ scaleY: scrollYProgress }}
-          className="absolute left-9 top-0 w-[4px] h-full bg-dark dark:bg-primary origin-top"
+          className="absolute left-5 sm:left-6.5 md:left-9 lg:left-9 top-0 w-[2px] sm:w-[3px] md:w-[4px] h-full bg-dark dark:bg-primary origin-top"
         />
-        <ul className="w-full flex flex-col items-center justify-between ml-4">
+        <ul className="w-full flex flex-col items-center justify-between ml-2 sm:ml-4">
           <Details
             position="React Developer"
             company="CloudSystems Ltd"

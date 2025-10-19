@@ -137,20 +137,23 @@ function About() {
 
       <main className="flex w-full flex-col items-center justify-center overflow-hidden">
         <Layout className="pt-16">
+          {/* Page Title */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            exit={{x: ["0%", "100"], width: ["0%", "100%"]}}
+            className="w-full text-center mb-8 sm:mb-10 md:mb-12"
           >
             <AnimateText
               text="Where Imagination meets Innovation!"
-              className="mb-12"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
             />
           </motion.div>
 
           {/* Main Content Layout */}
           <motion.div
-            className="w-full flex flex-col lg:flex-row items-stretch justify-between gap-12"
+            className="w-full grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -158,7 +161,7 @@ function About() {
           >
             {/* Biography Section */}
             <motion.div
-              className="w-full lg:w-2/5 flex flex-col items-start justify-start text-left"
+              className="lg:col-span-2 flex flex-col items-start justify-start text-left order-2 lg:order-1"
               variants={fadeInLeft}
               whileHover={{ 
                 x: 5,
@@ -183,7 +186,7 @@ function About() {
               ].map((paragraph, index) => (
                 <motion.p
                   key={index}
-                  className="my-4 font-medium text-dark/75 dark:text-light/75"
+                  className="my-3 sm:my-4 font-medium text-dark/75 dark:text-light/75 text-sm sm:text-base"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -201,11 +204,11 @@ function About() {
 
             {/* Image Section */}
             <motion.div
-              className="w-full lg:w-2/5 flex items-stretch"
+              className="lg:col-span-1 flex items-center justify-center order-1 lg:order-2 mb-6 lg:mb-0"
               variants={imageVariants}
             >
               <motion.div 
-                className="relative w-full rounded-2xl border-2 border-solid border-dark bg-light dark:bg-dark p-6 shadow-2xl flex items-center"
+                className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-full rounded-2xl border-2 border-solid border-dark bg-light dark:bg-dark p-4 sm:p-6 shadow-xl flex items-center"
                 whileHover={{ 
                   scale: 1.02,
                   boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
@@ -213,7 +216,7 @@ function About() {
                 }}
               >
                 <motion.div 
-                  className="absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] bg-transparent"
+                  className="absolute top-0 -right-2 sm:-right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] bg-transparent"
                   variants={floatingAnimation}
                   initial="initial"
                   animate="animate"
@@ -221,16 +224,16 @@ function About() {
                 <Image
                   src={profilePic}
                   alt="Eugen"
-                  className="w-full h-full object-cover rounded-2xl bg-gray-800"
+                  className="w-full h-auto object-cover rounded-2xl bg-gray-800"
                   priority
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 640px) 280px, (max-width: 768px) 320px, (max-width: 1024px) 380px, (max-width: 1280px) 420px, 480px"
                 />
               </motion.div>
             </motion.div>
 
             {/* Stats Section */}
             <motion.div
-              className="col-span-2 flex flex-col items-end justify-between gap-8"
+              className="col-span-1 lg:col-span-3 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 md:gap-8 order-3"
               variants={fadeInRight}
             >
               {[
@@ -240,7 +243,7 @@ function About() {
               ].map((stat, i) => (
                 <motion.div
                   key={i}
-                  className="flex flex-col items-end justify-center"
+                  className="flex flex-col items-center justify-center text-center w-full sm:w-auto"
                   initial={{ opacity: 0, y: 30, scale: 0.8 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true }}
@@ -254,15 +257,14 @@ function About() {
                   }}
                   whileHover={{ 
                     scale: 1.05,
-                    x: -5,
                     transition: { duration: 0.2 }
                   }}
                 >
-                  <span className="inline-block text-7xl font-bold dark:text-primary bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+                  <span className="inline-block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
                     <AnimatedNumbers value={stat.value} />+
                   </span>
                   <motion.h2 
-                    className="text-xl font-medium capitalize text-dark/75 dark:text-light whitespace-nowrap mt-2"
+                    className="text-sm sm:text-base md:text-lg lg:text-xl font-medium capitalize text-dark/75 dark:text-light mt-2 text-center"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: i * 0.3 + 0.5 }}
@@ -276,14 +278,14 @@ function About() {
 
           {/* Work Experience Section */}
           <motion.section
-            className="mt-32"
+            className="mt-20 sm:mt-24 md:mt-28 lg:mt-32"
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
             <motion.h2 
-              className="mb-16 text-6xl font-bold text-center text-dark dark:text-light"
+              className="mb-12 sm:mb-14 md:mb-16 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-dark dark:text-light"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -296,14 +298,14 @@ function About() {
 
           {/* Resume Section */}
           <motion.section
-            className="mt-32"
+            className="mt-20 sm:mt-24 md:mt-28 lg:mt-32"
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
             <motion.h2 
-              className="mb-16 text-6xl font-bold text-center text-dark dark:text-light"
+              className="mb-12 sm:mb-14 md:mb-16 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-dark dark:text-light"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}

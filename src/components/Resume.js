@@ -332,7 +332,7 @@ function Resume() {
                 className="flex flex-col gap-8"
               >
                 <div>
-                  <h3 className="text-3xl font-bold text-dark dark:text-primary mb-4">
+                  <h3 className="text-3xl font-bold text-center text-primary mb-4">
                     {education.title}
                   </h3>
                   <p className="text-dark dark:text-light/75 max-w-2xl">
@@ -385,7 +385,7 @@ function Resume() {
                 className="flex flex-col gap-8"
               >
                 <div>
-                  <h3 className="text-3xl font-bold text-dark dark:text-primary mb-4">
+                  <h3 className="text-3xl font-bold text-center text-primary mb-4">
                     {skillsData.title}
                   </h3>
                   <p className="text-dark dark:text-light/75 max-w-2xl mb-6">
@@ -393,7 +393,7 @@ function Resume() {
                   </p>
 
                   {/* Category Toggle Buttons */}
-                  <div className="flex flex-wrap gap-4 mb-6">
+                  <div className="flex flex-wrap gap-4 mb-6 items-center justify-center">
                     {skillsData.categories.map((category, index) => (
                       <motion.button
                         key={index}
@@ -479,7 +479,7 @@ function Resume() {
                 className="flex flex-col gap-8"
               >
                 <div>
-                  <h3 className="text-3xl font-bold text-dark dark:text-primary mb-4">
+                  <h3 className="text-3xl font-bold text-center text-primary mb-4">
                     {about.title}
                   </h3>
                   <p className="text-dark dark:text-light/75 text-lg leading-relaxed max-w-3xl mb-8">
