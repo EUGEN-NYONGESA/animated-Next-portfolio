@@ -17,7 +17,7 @@ import picArticle4 from "../../public/images/articles/smooth scrolling in reactj
 import picArticle5 from "../../public/images/articles/todo list app built using react redux and framer motion.png";
 import picArticle6 from "../../public/images/articles/What is higher order component in React.jpg";
 import picArticle7 from "../../public/images/articles/What is Redux with easy explanation.png";
-import Transition from "@/components/Transition";
+import TransitionPage from "@/components/TransitionPage";
 
 // Animation variants
 const containerVariants = {

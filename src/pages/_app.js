@@ -6,7 +6,7 @@ import { Montserrat } from "next/font/google";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
-import Transition from "@/components/Transition";
+import TransitionPage from "@/components/TransitionPage";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -29,7 +29,7 @@ export default function App({ Component, pageProps }) {
         <NavBar />
         <AnimatePresence mode="wait">
           <motion.div key={router.asPath}>
-            <Transition />
+            <TransitionPage />
             <Component key={router.asPath} {...pageProps} />
           </motion.div>
         </AnimatePresence>

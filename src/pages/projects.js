@@ -12,6 +12,7 @@ import project4 from "../../public/images/projects/fashion-studio-website.jpg";
 import project5 from "../../public/images/projects/nft-collection-website-cover-image.jpg";
 import project6 from "../../public/images/projects/portfolio-cover-image.jpg";
 import { motion } from "framer-motion";
+import TransitionPage from "@/components/TransitionPage";
 
 // Animation variants
 const containerVariants = {

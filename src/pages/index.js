@@ -8,7 +8,7 @@ import { LinkArrow } from "@/components/Icon";
 import HireMe from "@/components/HireMe";
 import lightBulb from "../../public/images/svgs/miscellaneous_icons_1.svg";
 import { motion } from "framer-motion";
-import Transition from "@/components/Transition";
+import TransitionPage from "@/components/TransitionPage";
 
 export default function Home() {
   return (
